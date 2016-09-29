@@ -7,6 +7,9 @@ import com.itmm.calculator.controller.CalculatorController;
 import com.itmm.calculator.view.CalculatorInput.InputHappend;
 import com.itmm.calculator.view.CalculatorView;
 
+/**
+ * MainActivity Class
+ */
 public class MainActivity extends AppCompatActivity implements InputHappend {
 
     CalculatorView View;
