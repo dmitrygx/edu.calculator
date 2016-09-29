@@ -13,6 +13,9 @@ import java.util.ArrayList;
  * Created by Dmitry on 9/29/2016.
  */
 
+/**
+ * Class for reading changes from TextViews from Activity
+ */
 public class CalculatorInput {
 
     private ArrayList<Button> OperandsButtons;
@@ -21,6 +24,11 @@ public class CalculatorInput {
 
     private CalculatorInput.InputHappend Delagete;
 
+    /**
+     * Constructor for CalculatorInput class
+     * @param activity The activity with views
+     * @param delegate The Delegate interface which has an definition of methods
+     */
     public CalculatorInput(Activity activity, CalculatorInput.InputHappend delegate) {
         Delagete = delegate;
         OperandsButtons = new ArrayList<Button>();
@@ -30,6 +38,10 @@ public class CalculatorInput {
         setUIComponent(activity);
     }
 
+    /**
+     * Set UI Components (Buttons) for activity
+     * @param activity The activity with views
+     */
     private void setUIComponent(Activity activity) {
         Resources tmpRes = activity.getResources();
 
@@ -63,6 +75,9 @@ public class CalculatorInput {
         }
     }
 
+    /**
+     * Listener for Operand Buttons in MainActivity
+     */
     private Button.OnClickListener onClickOperand = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -72,6 +87,9 @@ public class CalculatorInput {
         }
     };
 
+    /**
+     * Listener for Operation Buttons in MainActivity
+     */
     private Button.OnClickListener onClickOperation = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -81,6 +99,9 @@ public class CalculatorInput {
         }
     };
 
+    /**
+     * Listener for Memory Operation Buttons in MainActivity
+     */
     private Button.OnClickListener onClickMemory = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -90,6 +111,9 @@ public class CalculatorInput {
         }
     };
 
+    /**
+     * Interface with predefined methods as a actions for listener
+     */
     public interface InputHappend {
         // When user input operand, notify which operand by input.
         void operandIn(String operand);
